@@ -367,4 +367,8 @@ html.fixed, body.fixed {
   border: 1px solid #ccc;
 }
 
+.cont3 {
+  position: absolute;
+}
+
 /*# sourceMappingURL=main.css.map */
