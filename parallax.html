@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="parallax.min.js"></script>
+  <style>
+    .parallax-window {
+        min-height: 400px;
+        background: transparent;
+    }
+    .blank {
+      height:300px;
+    }
+    h2 {
+      font-size:3em;
+      background-color: #fff;
+      color:#000;
+      padding:10px;
+      display: inline-block;
+    }
+    .black1 {
+
+    }
+  </style>
+</head>
+<body>
+  <div class="blank black1"></div>
+  <div class="blank">
+    
+  </div>
+  <div class="blank">
+    
+  </div>
+  <div class="parallax-window" data-image-src="bg2.jpg">
+    <h2>banner title</h2>
+  </div>
+  <div class="blank">
+    
+  </div>
+  <div class="blank">
+    
+  </div>
+  <div class="blank">
+    
+  </div>
+  <script>
+    $(function(){
+      $('.parallax-window').parallax({
+        imageSrc: 'bg.jpg',
+        speed:0.5,
+      });
+    })
+  </script>
+</body>
+</html>

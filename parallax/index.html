@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <header>
+    <h1 class="left-logo">
+      <a href="#">
+        Sulwhasoo
+      </a>
+      <p>Rose Brand Site Contents</p>
+    </h1>
+    <div class="top-wrap">
+      <div class="rang">
+        <h2 class="hidden">언어선택</h2>
+        <ul>
+          <li><a href="#">한국/한국어</a></li>
+          <li><a href="#">한국/한국어</a></li>
+        </ul>
+      </div>
+      <a href="#" class="logo">Sulwhasoo</a>
+      <div class="right">
+        <a href="#">매장찾기</a>
+        <a href="#">구매하기</a>
+        <a href="#">검색히기</a>
+      </div>
+    </div>
+    <nav>
+      <h2 class="hidden">메뉴</h2>
+      <ul class="menu-wrap">
+        <li class="active">
+          <a href="#">브랜드 빌리프</a>
+          <ul class="sub-menu">
+            <li><a href="#">설화수 포스트</a></li>
+            <li><a href="#">설화수 포스트</a></li>
+            <li><a href="#">설화수 포스트</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">베스트셀러</a>
+          <ul class="sub-menu">
+            <li><a href="#">설화수 포스트</a></li>
+            <li><a href="#">설화수 포스트</a></li>
+            <li><a href="#">설화수 포스트</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">제품</a>
+          <ul class="sub-menu">
+            <li><a href="#">설화수 포스트</a></li>
+            <li><a href="#">설화수 포스트</a></li>
+            <li><a href="#">설화수 포스트</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">스파</a>
+          <ul class="sub-menu">
+            <li><a href="#">설화수 포스트</a></li>
+            <li><a href="#">설화수 포스트</a></li>
+            <li><a href="#">설화수 포스트</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">플래그십 스토어</a>
+          <ul class="sub-menu">
+            <li><a href="#">설화수 포스트</a></li>
+            <li><a href="#">설화수 포스트</a></li>
+            <li><a href="#">설화수 포스트</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <div class="cont cont1" id="cont1">
+      <h2 class="hidden">section1</h2>
+      <div class="swiper-wrap swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide slide1">
+            <div class="s-txt">
+              Sulwhass Stroyteller
+            </div>
+            <div class="txt">
+              Sulwhass Rebloom<br>with ROSE
+            </div>
+          </div>
+          <div class="swiper-slide slide2"  data-swiper-autoplay="6000">
+            <div class="s-txt">
+              Global Ambassador ROSE
+            </div>
+            <div class="txt">
+              ROSE와 함께 할 설화수의 아름다운 여정
+            </div>
+            <p class="s-txt2">
+              브랜드의 시작부터 완성까지 설화수가 걸어온 아름다움을 향한 여정들에<br>
+              글로벌 엠배서더 ROSE가 함께 합니다.
+            </p>
+            <div class="bg"></div>
+          </div>
+          <div class="swiper-slide slide3" style="background-color: rgb(99, 23, 89);">
+            <p class="s-txt2">
+              그녀의 감각으로 재현한<br>
+              앰배서더 필름 &gt;사람은 흙에서 태어나 꽃이 된다&lt;를 통해,<br>
+              설화수의 세계관 스토리를 만나보세요.
+            </p>
+          </div>
+        </div>
+      </div>
+      <button class="btn-scroll">
+        <span>스크롤하여 보기</span>
+        <i class="arrow"></i>
+      </button>
+    </div>
+    <div class="cont cont2" id="cont2">
+      <h2 class="hidden">section 2</h2>
+      <div class="left">
+        <div class="title">
+          <span>Ambassador Film</span>
+          <h3>사람은 흙에서 태어나 꽃이 된다</h3>
+        </div>
+        <p class="s-txt">
+          설화수의 시작과 완성까지의 여정을 담은 &lt;사람은 흙에서 태어나 꽃이 된다&gt;는<br>
+          흙, 눈, 꽃의 은유적인 상징물로 설화수의 정신과 이미지를 시네마틱하게 표현하였습니다.
+        </p>
+        <button class="btn-next">엠버서더 필름보기</button>
+      </div>
+      <div class="right">
+        <div class="title">
+          <span>Ambassador Film</span>
+          <h3>사람은 흙에서 태어나 꽃이 된다</h3>
+        </div>
+        <div class="video">
+          영상영역
+        </div>
+        <button class="btn-prev">돌아가기</button>        
+      </div>
+      <div class="cont3">
+        <div class="box">
+          zoom box
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // cont1 slider
+    const swiper = new Swiper('.swiper-wrap', {
+      slidesPerView: 1,
+      effect: "fade",
+      loop: true,
+      //mousewheel: true,
+      autoplay : {
+        delay: 4000,
+      },
+	    speed : 2000,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      //direction: 'vertical',
+      // on: {
+      //   slideChange: function () {
+      //     setTimeout(function () {
+      //       swiper.params.touchReleaseOnEdges = false;
+      //       swiper.params.mousewheel.releaseOnEdges = false;
+      //     });
+      //   },
+      //   reachEnd: function () {
+      //     setTimeout(function () {
+      //       swiper.params.touchReleaseOnEdges = true;
+      //       swiper.params.mousewheel.releaseOnEdges = true;
+      //     }, 500);
+      //   },
+      //   reachBeginning: function () {
+      //     setTimeout(function () {
+      //       swiper.params.touchReleaseOnEdges = true;
+      //       swiper.params.mousewheel.releaseOnEdges = true;
+      //     }, 500);
+      //   }
+      // }
+    });
+
+
+    
+
+    // cont2 버튼 클릭
+
+    let cont1 = document.getElementById('cont1');
+    let cont2 = document.getElementById('cont2');
+
+    // window.addEventListener('scroll',function(){
+    //   let value = window.scrollY;
+    //   cont2.style.top = -value * 0.25 + 'px';
+    // })
+
+    document.querySelector('.cont2 .btn-next').addEventListener('click', function () {
+      this.parentElement.parentElement.classList.add('next');
+      document.querySelector('body').classList.add('fixed');
+    })
+    document.querySelector('.cont2 .btn-prev').addEventListener('click', function () {
+      this.parentElement.parentElement.classList.remove('next');
+      document.querySelector('body').classList.remove('fixed');
+      cont2.style.top = '0px';
+      window.scrollTo({top:window.innerHeight,behavior:"auto"});
+    })
+  </script>
+</body>
+</html>

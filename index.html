@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scroll</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <header>
+    헤더
+  </header>
+  <div class="container">
+    <section class="cont1 swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-color: rgb(172, 201, 45);">
+          첫번째
+          <span class="txt-motion">text</span>
+        </div>
+        <div class="swiper-slide" style="background-color: rgb(60, 145, 160);">
+          두번째
+          <span class="txt-motion">text</span>
+        </div>
+        <div class="swiper-slide" style="background-color: rgb(99, 23, 89);">
+          세번째
+          <span class="txt-motion">text</span>
+        </div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+    </section>
+    <section class="cont2">
+      <div class="box box1" style="background-color: #eee;">
+        첫번째 화면
+        <button class="btn-next"> 옆 화면 </button>
+      </div>
+      <div class="box box2" style="background-color: #000;">
+        두번째화면
+        <button class="btn-prev"> 돌아가기</button>
+      </div>
+      <div class="box box3" style="background-color: rgb(150, 92, 92);">
+        세번째 화면
+        스크롤시 확대
+      </div>
+    </section>
+    <section class="cont3">
+      <div class="left">
+          
+        <div class="img">컨텐츠</div>
+        <div class="img">대각선으로</div>
+        <div class="img">갈 것</div>
+      </div>
+      <div class="center">
+        정면
+      </div>
+    </section>
+    <section class="cont4">
+      <div class="zomm">
+        확대 ~~
+      </div>
+      <div class="fade">
+        <div class="text">
+          고난 끝
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // cont1 slider
+    const swiper = new Swiper('.cont1', {
+      slidesPerView: 1,
+      effect: "fade",
+      // If we need pagination
+      mousewheel: true,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      direction: 'vertical',
+      on: {
+        slideChange: function () {
+          setTimeout(function () {
+            swiper.params.touchReleaseOnEdges = false;
+            swiper.params.mousewheel.releaseOnEdges = false;
+          });
+        },
+        reachEnd: function () {
+          setTimeout(function () {
+            swiper.params.touchReleaseOnEdges = true;
+            swiper.params.mousewheel.releaseOnEdges = true;
+          }, 500);
+        },
+        reachBeginning: function () {
+          setTimeout(function () {
+            swiper.params.touchReleaseOnEdges = true;
+            swiper.params.mousewheel.releaseOnEdges = true;
+          }, 500);
+        }
+      }
+    });
+
+
+    // const contHeight = document.querySelector(".cont1").offsetHeight;
+    // document.addEventListener('wheel', function (e) {
+    //   const deltaY = e.deltaY;
+    //   const scrollY = window.pageYOffset;
+    //   console.log(deltaY, scrollY);
+    //   if (scrollY > 0 && scrollY <= contHeight - 1) {
+    //     e.preventDefault();
+    //     if (deltaY > 0) {
+    //       window.scrollTo({ left: 0, top: contHeight, behavior: "smooth" });
+    //     } else {
+    //       window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+    //     }
+    //   }
+    // }, { passive: false })
+
+
+    // cont2 버튼 클릭
+    document.querySelector('.cont2 .btn-next').addEventListener('click', function () {
+      this.parentElement.parentElement.classList.add('next');
+    })
+    document.querySelector('.cont2 .btn-prev').addEventListener('click', function () {
+      this.parentElement.parentElement.classList.remove('next');
+    })
+
+
+    const zoomBox = document.querySelector('.cont2 .box3');
+    const threshold = window.innerHeight + document.querySelector('.cont2').clientHeight;
+
+    let zoomScale = 1;
+    const ZOOM_SPEED = 0.1;
+
+    window.addEventListener('scroll', function () {
+      const zoomScale = zoomBox.getBoundingClientRect().width / zoomBox.offsetWidth;
+      let scale = (window.scrollY - document.querySelector('.cont1').clientHeight) / 100;
+      console.log(scale, );
+      if (scale > 0 && scale < 1) {
+        zoomBox.classList.add('zoom');
+      }
+      if(scale < 0) {
+        zoomBox.classList.remove('zoom');
+      }
+    });
+  </script>
+</body>
+
+</html>
