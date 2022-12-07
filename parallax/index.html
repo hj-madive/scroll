@@ -7,6 +7,7 @@
   <title>Parallax</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -141,10 +142,13 @@
         </div>
         <button class="btn-prev">돌아가기</button>        
       </div>
-      <div class="cont3">
-        <div class="box">
-          zoom box
-        </div>
+    </div>
+    <div class="cont cont3">
+      <h2 class="hidden">section 3</h2>
+      <div class="bg"></div>
+      <div class="txt-wrap">
+        <h3>흙의 기운으로<br>시작되다</h3>
+        <p>1932년, 아름다움을 꽃피우기 위해 시작된 설화수의 찬란한 여정은 모든 만물의 근원이 되는 흙의 정신과 맞닿아 있습니다.</p>
       </div>
     </div>
   </main>
@@ -193,21 +197,39 @@
 
     let cont1 = document.getElementById('cont1');
     let cont2 = document.getElementById('cont2');
+    let cont3 = document.querySelector('.cont3 .bg');
+    
+    function scroll_on() {
+      let value = window.scrollY;
+      if(value <= cont2.offsetTop) {
+        cont2.style.marginTop =  - value * 0.25 + 'px';
+      }
+      else if(cont2.offsetTop < value) {
+        value = value - cont2.offsetTop
+        if(window.innerWidth >= cont3.clientHeight + value * 0.25) {
+          cont3.style.width =  cont3.clientWidth + value * 0.25 + 'px';
 
-    // window.addEventListener('scroll',function(){
-    //   let value = window.scrollY;
-    //   cont2.style.top = -value * 0.25 + 'px';
-    // })
+        }
+        cont3.style.height =  cont3.clientHeight + value * 0.25 + 'px';
+        cont3.style.marginTop =   - value * 0.25 + 'px';
+        console.log(cont3.clientWidth + value);
+      }
+    }
+
+    window.addEventListener('scroll',function(e){
+      if(cont2.classList.contains('next')) {
+        scrollTo({top:cont2.offsetTop, behavior:"auto"})
+      }else {
+        scroll_on()
+      }
+    })
 
     document.querySelector('.cont2 .btn-next').addEventListener('click', function () {
       this.parentElement.parentElement.classList.add('next');
-      document.querySelector('body').classList.add('fixed');
+        scrollTo({top:cont2.offsetTop, behavior:"auto"})
     })
     document.querySelector('.cont2 .btn-prev').addEventListener('click', function () {
       this.parentElement.parentElement.classList.remove('next');
-      document.querySelector('body').classList.remove('fixed');
-      cont2.style.top = '0px';
-      window.scrollTo({top:window.innerHeight,behavior:"auto"});
     })
   </script>
 </body>
